@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-
+import ChartContent from "./ChartContent"
+import Table from "./Table"
 function Tabs() {
   const [activeTab, setActiveTab] = useState(0)
 
@@ -11,7 +12,7 @@ function Tabs() {
   }
   return (
     <React.Fragment>
-      <div className="flex flex-col mx-auto mt-2 rounded-2xl bg-white pb-2 shadow-xl md:w-1/2">
+      <div className="flex flex-col mx-auto mt-2 rounded-2xl bg-white pb-2 shadow-xl  sm:w-auto lg:w-1/2 mb-10">
         <div className="flex mx-auto mt-2  space-x-10">
           <button
             onClick={() => openChartTab(0)}
@@ -36,12 +37,12 @@ function Tabs() {
         </div>
 
         {activeTab === 0 ? (
-          <div className="flex mx-auto mt-8 justify-center w-full">
-            Chart Content
+          <div className="mx-auto mt-8 justify-center ">
+            <ChartContent />
           </div>
         ) : (
-          <div className="flex mx-auto mt-8 justify-center w-full ">
-            Table Content
+          <div className="mt-8 md:overflow-visible">
+            <Table />
           </div>
         )}
       </div>
