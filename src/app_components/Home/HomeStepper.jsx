@@ -4,6 +4,8 @@ import StepperControl from "./StepperControl"
 import { UseContextProvider } from "../../contexts/StepperContext"
 import { useHomeContext } from "../../contexts/HomeContext"
 import { useDispatch } from "react-redux"
+import { predictDataAction } from "../../actions/homeActions"
+
 import Basic from "../steps/Basic"
 import Feature1 from "../steps/Feature1"
 import Feature2 from "../steps/Feature2"
@@ -43,7 +45,7 @@ function HomeStepper() {
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
     if (direction === "next") {
       console.log("Welocme from home", userDataHome)
-      console.log("Welocme from home", userDataHome)
+      dispatch(predictDataAction(userDataHome))
     }
   }
 

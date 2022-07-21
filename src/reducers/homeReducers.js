@@ -1,23 +1,23 @@
 import {
-  DAILY_TRANSACTION_NUMBER_REQUEST,
-  DAILY_TRANSACTION_NUMBER_SUCCESS,
-  DAILY_TRANSACTION_NUMBER_FAIL,
+  PREDICT_DATA_REQUEST,
+  PREDICT_DATA_SUCCESS,
+  PREDICT_DATA_FAIL,
 } from "../actions/types"
-export const transactionNumberReducer = (
-  state = { daily_transaction_number: [] },
+export const predictDataReducer = (
+  state = { predict_data_reducer: [] },
   action
 ) => {
   switch (action.type) {
-    case DAILY_TRANSACTION_NUMBER_REQUEST:
-      return { loading: true, error: false, daily_transaction_number: [] }
+    case PREDICT_DATA_REQUEST:
+      return { loading: true, error: false, predict_data_reducer: [] }
 
-    case DAILY_TRANSACTION_NUMBER_SUCCESS:
+    case PREDICT_DATA_SUCCESS:
       return {
         loading: false,
-        daily_transaction_number: action.payload,
+        predict_data_reducer: action.payload,
       }
 
-    case DAILY_TRANSACTION_NUMBER_FAIL:
+    case PREDICT_DATA_FAIL:
       return {
         loading: false,
         error: action.payload,

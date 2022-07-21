@@ -1,26 +1,26 @@
 import axios from "axios"
 import {
   HOST,
-  DAILY_TRANSACTION_NUMBER_REQUEST,
-  DAILY_TRANSACTION_NUMBER_SUCCESS,
-  DAILY_TRANSACTION_NUMBER_FAIL,
+  PREDICT_DATA_REQUEST,
+  PREDICT_DATA_SUCCESS,
+  PREDICT_DATA_FAIL,
 } from "./types"
 
-export const dailyTransactionNumber = () => async (dispatch) => {
+export const predictDataAction = (userDataHome) => async (dispatch) => {
   try {
-    dispatch({ type: DAILY_TRANSACTION_NUMBER_REQUEST })
-    const { data } = await axios.get(
-      HOST + "general/daily_number_of_transactions/"
-    )
-
+    dispatch({ type: PREDICT_DATA_REQUEST })
+    console.log("Hello from action: ", userDataHome)
+    // const { data } = await axios.get(
+    //   HOST + "general/daily_number_of_transactions/"
+    // )
+    const { data } = userDataHome
     dispatch({
-      type: DAILY_TRANSACTION_NUMBER_SUCCESS,
+      type: PREDICT_DATA_SUCCESS,
       payload: data,
     })
-    console.log("This is the daily transaction statistics", data)
   } catch (error) {
     dispatch({
-      type: DAILY_TRANSACTION_NUMBER_FAIL,
+      type: PREDICT_DATA_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail
