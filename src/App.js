@@ -3,7 +3,7 @@ import Home from "./app_components/Home/Home"
 import configureStore from "./config/configureStore"
 import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
-import history from "browserHistory"
+import history from "./browserHistory"
 
 // If there is any authentication system.
 // To get the user reconnected, you need to dispatch loading the user

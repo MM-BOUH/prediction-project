@@ -1,13 +1,16 @@
 import { useStepperContext } from "../../contexts/StepperContext"
 import { INPUT_VALIDATION } from "../../actions/types"
+import { useHomeContext } from "../../contexts/HomeContext"
 
 export default function Details() {
   const { userData, setUserData } = useStepperContext()
+  const { userDataHome, setUserDataHome } = useHomeContext()
 
   const handleChange = (e) => {
     const { name, value } = e.target
     if (INPUT_VALIDATION.test(value)) {
       setUserData({ ...userData, [name]: value })
+      setUserDataHome({ ...userDataHome, [name]: value })
     }
   }
 
@@ -20,8 +23,8 @@ export default function Details() {
         <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
           <input
             onChange={handleChange}
-            value={userData["address"] || ""}
-            name="address"
+            value={userData["bmi"] || ""}
+            name="bmi"
             placeholder="BMI"
             className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
           />
@@ -34,8 +37,8 @@ export default function Details() {
         <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
           <input
             onChange={handleChange}
-            value={userData["city"] || ""}
-            name="city"
+            value={userData["temperature"] || ""}
+            name="temperature"
             placeholder="Temperature"
             type="text"
             className="p-1 px-2 appearance-none outline-none w-full text-gray-800"

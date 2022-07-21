@@ -2,7 +2,8 @@ import { useState } from "react"
 import Stepper from "./Stepper"
 import StepperControl from "./StepperControl"
 import { UseContextProvider } from "../../contexts/StepperContext"
-
+import { useHomeContext } from "../../contexts/HomeContext"
+import { useDispatch } from "react-redux"
 import Basic from "../steps/Basic"
 import Feature1 from "../steps/Feature1"
 import Feature2 from "../steps/Feature2"
@@ -10,7 +11,9 @@ import Final from "../steps/Final"
 
 function HomeStepper() {
   const [currentStep, setCurrentStep] = useState(1)
+  const { userDataHome } = useHomeContext()
 
+  const dispatch = useDispatch()
   const steps = [
     "Necessary Information",
     "Features",
@@ -38,6 +41,10 @@ function HomeStepper() {
     direction === "next" ? newStep++ : newStep--
     // check if steps are within bounds
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
+    if (direction === "next") {
+      console.log("Welocme from home", userDataHome)
+      console.log("Welocme from home", userDataHome)
+    }
   }
 
   return (

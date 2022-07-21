@@ -1,13 +1,16 @@
 import { useStepperContext } from "../../contexts/StepperContext"
+import { useHomeContext } from "../../contexts/HomeContext"
 import { INPUT_VALIDATION } from "../../actions/types"
 export default function Account() {
   const { userData, setUserData } = useStepperContext()
+  const { userDataHome, setUserDataHome } = useHomeContext()
   // const rx_live = /^[+-]?\d*(?:[.,]\d*)?$/
 
   const handleChange = (e) => {
     const { name, value } = e.target
     if (INPUT_VALIDATION.test(value)) {
       setUserData({ ...userData, [name]: value })
+      setUserDataHome({ ...userDataHome, [name]: value })
     }
   }
 
