@@ -44,7 +44,8 @@ function HomeStepper() {
     // check if steps are within bounds
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
     if (direction === "next") {
-      console.log("Welocme from home", userDataHome["gender"])
+      console.log("currentStep", currentStep)
+      userDataHome["currentStep"] = currentStep
       dispatch(predictDataAction(userDataHome))
     }
   }
