@@ -10,6 +10,10 @@ import Basic from "../steps/Basic"
 import Feature1 from "../steps/Feature1"
 import Feature2 from "../steps/Feature2"
 import Final from "../steps/Final"
+import Feature3 from "../steps/Feature3"
+import Feature4 from "../steps/Feature4"
+import Feature5 from "../steps/Feature5"
+import Feature6 from "../steps/Feature6"
 
 function HomeStepper() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -18,8 +22,12 @@ function HomeStepper() {
   const dispatch = useDispatch()
   const steps = [
     "Necessary Information",
-    "Features",
-    "Features",
+    "BMI",
+    "SPO2",
+    "Pulse rate",
+    "Temperature",
+    "BP_SYS",
+    "BP_DIA",
     "Confirmation",
   ]
 
@@ -32,6 +40,14 @@ function HomeStepper() {
       case 3:
         return <Feature2 />
       case 4:
+        return <Feature3 />
+      case 5:
+        return <Feature4 />
+      case 6:
+        return <Feature5 />
+      case 7:
+        return <Feature6 />
+      case 8:
         return <Final />
       default:
     }

@@ -2,7 +2,7 @@ import { useStepperContext } from "../../contexts/StepperContext"
 import { useHomeContext } from "../../contexts/HomeContext"
 import { INPUT_VALIDATION } from "../../actions/types"
 import { useState } from "react"
-export default function Account() {
+export default function Basic() {
   const { userData, setUserData } = useStepperContext()
   const { userDataHome, setUserDataHome } = useHomeContext()
   const [gender, setGender] = useState()

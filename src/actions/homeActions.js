@@ -11,7 +11,7 @@ export const predictDataAction = (userDataHome) => async (dispatch) => {
     dispatch({ type: PREDICT_DATA_REQUEST })
     if (userDataHome["gender"] === "Female") {
       userDataHome["gender"] = 0
-    } else {
+    } else if (userDataHome["gender"] === "Male") {
       userDataHome["gender"] = 1
     }
     console.log("After modifying it : ", userDataHome)
