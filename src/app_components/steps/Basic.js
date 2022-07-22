@@ -1,10 +1,11 @@
 import { useStepperContext } from "../../contexts/StepperContext"
 import { useHomeContext } from "../../contexts/HomeContext"
 import { INPUT_VALIDATION } from "../../actions/types"
+import { useState } from "react"
 export default function Account() {
   const { userData, setUserData } = useStepperContext()
   const { userDataHome, setUserDataHome } = useHomeContext()
-  // const rx_live = /^[+-]?\d*(?:[.,]\d*)?$/
+  const [gender, setGender] = useState()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -12,6 +13,13 @@ export default function Account() {
       setUserData({ ...userData, [name]: value })
       setUserDataHome({ ...userDataHome, [name]: value })
     }
+  }
+
+  const handleSelected = (e) => {
+    const { name, value } = e.target
+    setGender(e.target.value)
+    setUserData({ ...userData, [name]: value })
+    setUserDataHome({ ...userDataHome, [name]: value })
   }
 
   return (
@@ -36,10 +44,18 @@ export default function Account() {
           Gender
         </div>
         <div className="relative my-2 flex rounded border border-gray-200 ">
-          <select className="block w-full py-2 pl-4 pr-8 bg-white border border-gray-300 rounded-sm appearance-none cursor-pointer focus:outline-none hover:border-gray-400">
+          <select
+            className="block w-full py-2 pl-4 pr-8 bg-white border border-gray-300 rounded-sm appearance-none cursor-pointer focus:outline-none hover:border-gray-400"
+            onChange={handleSelected}
+            name="gender"
+          >
             <option>Select...</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option name="male" value="Male">
+              Male
+            </option>
+            <option name="female" value="Female">
+              Female
+            </option>
           </select>
           <div className="absolute inset-y-0 right-0 flex items-center px-2 text-blue-400 pointer-events-none">
             <svg

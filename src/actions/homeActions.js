@@ -9,7 +9,12 @@ import {
 export const predictDataAction = (userDataHome) => async (dispatch) => {
   try {
     dispatch({ type: PREDICT_DATA_REQUEST })
-    console.log("Hello from action: ", userDataHome)
+    if (userDataHome["gender"] === "Female") {
+      userDataHome["gender"] = 0
+    } else {
+      userDataHome["gender"] = 1
+    }
+    console.log("After modifying it : ", userDataHome)
     // const { data } = await axios.get(
     //   HOST + "general/daily_number_of_transactions/"
     // )
