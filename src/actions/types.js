@@ -1,5 +1,5 @@
-// For the host
-export const HOST = ""
+// For the backend development host
+export const HOST = "http://127.0.0.1:8000/"
 
 // For inputs that accept only numbers
 export const INPUT_VALIDATION = /^[+-]?\d*(?:[.,]\d*)?$/

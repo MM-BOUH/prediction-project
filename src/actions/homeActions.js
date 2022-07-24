@@ -14,11 +14,16 @@ export const predictDataAction = (userDataHome) => async (dispatch) => {
     } else if (userDataHome["gender"] === "Male") {
       userDataHome["gender"] = 1
     }
-    console.log("After modifying it : ", userDataHome)
-    // const { data } = await axios.get(
-    //   HOST + "general/daily_number_of_transactions/"
-    // )
-    const { data } = userDataHome
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+    const body = {
+      predictions: userDataHome,
+    }
+    const { data } = await axios.post(HOST + "predictions/", body, config)
+
     dispatch({
       type: PREDICT_DATA_SUCCESS,
       payload: data,
