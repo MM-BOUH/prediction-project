@@ -1,7 +1,10 @@
 import React from "react"
 import Chart from "react-apexcharts"
+import { RingLoader } from "react-spinners"
 
-function ChartContent() {
+function ChartContent(props) {
+  const { loading, error, predict_data_reducer } = props.predictionResult
+
   const options = {
     stroke: {
       curve: "smooth",
@@ -12,23 +15,47 @@ function ChartContent() {
     xaxis: {
       categories: [
         "BMI",
+        "SPO2",
+        "Pulse rate",
         "Temperature",
-        "Blood pressure(SYS)",
-        "Blood pressure(DIAS)",
+        "BP SYS",
+        "BP DIA",
       ],
     },
   }
   const series = [
     {
       name: "Measure",
-      data: [19, 36.5, 110, 75],
+      data: [
+        predict_data_reducer.predicted_data["bmi"],
+        predict_data_reducer.predicted_data["spo2"],
+        predict_data_reducer.predicted_data["pulse_rate"],
+        predict_data_reducer.predicted_data["temperature"],
+        predict_data_reducer.predicted_data["bp_sys"],
+        predict_data_reducer.predicted_data["bp_dia"],
+      ],
+      // data: [12, 45, 65, 36, 45, 41],
     },
   ]
 
   return (
-    <div>
-      <Chart options={options} series={series} type="bar" width="470" />
-    </div>
+    <>
+      {loading ? (
+        <div>
+          <RingLoader color={"#0099ff"} loading={true} />
+        </div>
+      ) : error ? (
+        <div className="mx-auto mt-8 justify-center mb-3">
+          <h2>An error has occurred!</h2>
+        </div>
+      ) : (
+        <Chart options={options} series={series} type="bar" width="470" />
+      )}
+
+      {/* <div>
+        <Chart options={options} series={series} type="bar" width="470" />
+      </div> */}
+    </>
   )
 }
 

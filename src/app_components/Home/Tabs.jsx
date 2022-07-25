@@ -1,6 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import ChartContent from "./ChartContent"
 import Table from "./Table"
+import { RingLoader } from "react-spinners"
+
 function Tabs() {
   const [activeTab, setActiveTab] = useState(0)
 
@@ -10,6 +13,15 @@ function Tabs() {
   const openTableTab = (active) => {
     setActiveTab(active)
   }
+
+  // To get the data from state and pass it through the chart and the tab components
+  const predictionResult = useSelector((state) => state.predictDataIndex)
+  const { predict_data_reducer } = predictionResult
+
+  useEffect(() => {
+    console.log("Step from useEffect ", predict_data_reducer)
+  }, [predict_data_reducer])
+
   return (
     <React.Fragment>
       <div className="flex flex-col mx-auto mt-2 rounded-2xl bg-white pb-2 shadow-xl  sm:w-auto lg:w-1/2 mb-10">
@@ -36,15 +48,32 @@ function Tabs() {
           </button>
         </div>
 
-        {activeTab === 0 ? (
-          <div className="mx-auto mt-8 justify-center ">
-            <ChartContent />
-          </div>
-        ) : (
-          <div className="mt-8 md:overflow-visible">
+        {
+          predict_data_reducer.length === 0 ? (
+            <div className="mx-auto mt-8 justify-center mb-3">
+              <div>
+                <RingLoader color={"#0099ff"} loading={true} />
+              </div>
+            </div>
+          ) : activeTab === 0 ? (
+            // <div className="mx-auto mt-8 justify-center ">
+            <div className="mx-auto mt-8 justify-center">
+              <ChartContent predictionResult={predictionResult} />
+            </div>
+          ) : // </div>
+          activeTab === 1 && predict_data_reducer.length !== 0 ? (
+            // <div className="mt-8 md:overflow-visible">
             <Table />
-          </div>
-        )}
+          ) : (
+            // </div>
+            ""
+          )
+          //   (
+          // <div className="mx-auto mt-8 justify-center mb-3">
+          //   <h2>Enter some data to start your prediction journey please!</h2>
+          // </div>
+          // )
+        }
       </div>
     </React.Fragment>
   )
