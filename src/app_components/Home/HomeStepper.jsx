@@ -9,15 +9,16 @@ import { predictDataAction } from "../../actions/homeActions"
 import Basic from "../steps/Basic"
 import Feature1 from "../steps/Feature1"
 import Feature2 from "../steps/Feature2"
-import Final from "../steps/Final"
 import Feature3 from "../steps/Feature3"
 import Feature4 from "../steps/Feature4"
 import Feature5 from "../steps/Feature5"
 import Feature6 from "../steps/Feature6"
+import Final from "../steps/Final"
 
 function HomeStepper() {
   const [currentStep, setCurrentStep] = useState(1)
   const { userDataHome } = useHomeContext()
+  const [loadingNext, setLoadingNext] = useState(false)
 
   const dispatch = useDispatch()
   const steps = [
@@ -62,7 +63,8 @@ function HomeStepper() {
     if (direction === "next") {
       console.log("currentStep", currentStep)
       userDataHome["currentStep"] = currentStep
-      dispatch(predictDataAction(userDataHome))
+
+      dispatch(predictDataAction(userDataHome, setLoadingNext))
     }
   }
 
@@ -83,6 +85,7 @@ function HomeStepper() {
           handleClick={handleClick}
           currentStep={currentStep}
           steps={steps}
+          loadingNext={loadingNext}
         />
       )}
     </div>
