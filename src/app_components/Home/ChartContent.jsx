@@ -25,14 +25,62 @@ function ChartContent(props) {
   }
   const series = [
     {
-      name: "Measure",
+      name: "Predicted data",
       data: [
-        predict_data_reducer.predicted_data["bmi"],
-        predict_data_reducer.predicted_data["spo2"],
-        predict_data_reducer.predicted_data["pulse_rate"],
-        predict_data_reducer.predicted_data["temperature"],
-        predict_data_reducer.predicted_data["bp_sys"],
-        predict_data_reducer.predicted_data["bp_dia"],
+        // For the BMI predicted data
+        predict_data_reducer.predicted_data["bmi"] &&
+          predict_data_reducer.predicted_data["bmi"],
+
+        // For the SPO2 predicted data
+        predict_data_reducer.predicted_data["spo2"] &&
+          predict_data_reducer.predicted_data["spo2"],
+
+        // For the pulse rate predicted data
+        predict_data_reducer.predicted_data["pulse_rate"] &&
+          predict_data_reducer.predicted_data["pulse_rate"],
+
+        // For the temperature predicted data
+        predict_data_reducer.predicted_data["temperature"] &&
+          predict_data_reducer.predicted_data["temperature"],
+
+        // For the bp_sys predicted data
+        predict_data_reducer.predicted_data["bp_sys"] &&
+          predict_data_reducer.predicted_data["bp_sys"],
+
+        // For the bp_dia predicted data
+        predict_data_reducer.predicted_data["bp_dia"] &&
+          predict_data_reducer.predicted_data["bp_dia"],
+      ],
+    },
+    {
+      name: "Actual data",
+      data: [
+        // For the BMI actual data
+        // predict_data_reducer.predicted_data["bmi"] !== null
+        //   ? predict_data_reducer.predicted_data["bmi"]
+        //   : predict_data_reducer.actual_data["bmi"],
+        predict_data_reducer.actual_data["bmi"] &&
+          predict_data_reducer.actual_data["bmi"],
+
+        // For the SPO2 actual data
+        predict_data_reducer.actual_data["spo2"] &&
+          predict_data_reducer.actual_data["spo2"],
+
+        // For the pulse rate actual data
+        predict_data_reducer.actual_data["pulse_rate"] &&
+          predict_data_reducer.actual_data["pulse_rate"],
+
+        // For the temperature actual data
+        predict_data_reducer.actual_data["temperature"] &&
+          predict_data_reducer.actual_data["temperature"],
+
+        // For the bp_sys actual data
+        predict_data_reducer.actual_data["bp_sys"] &&
+          predict_data_reducer.actual_data["bp_sys"],
+
+        // For the bp_dia actual data
+        predict_data_reducer.actual_data["bp_dia"] &&
+          predict_data_reducer.actual_data["bp_dia"],
       ],
       // data: [12, 45, 65, 36, 45, 41],
     },
