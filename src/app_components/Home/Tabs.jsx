@@ -16,7 +16,15 @@ function Tabs() {
 
   // To get the data from state and pass it through the chart and the tab components
   const predictionResult = useSelector((state) => state.predictDataIndex)
-  const { predict_data_reducer } = predictionResult
+  const { loading, predict_data_reducer } = predictionResult
+
+  const history1 = useSelector((state) => state.history1)
+  const history2 = useSelector((state) => state.history2)
+  const history3 = useSelector((state) => state.history3)
+  const history4 = useSelector((state) => state.history4)
+  const history5 = useSelector((state) => state.history5)
+  const history6 = useSelector((state) => state.history6)
+  const history7 = useSelector((state) => state.history7)
 
   useEffect(() => {
     console.log("Step from useEffect ", predict_data_reducer)
@@ -63,7 +71,16 @@ function Tabs() {
           ) : // </div>
           activeTab === 1 && predict_data_reducer.length !== 0 ? (
             // <div className="mt-8 md:overflow-visible">
-            <Table />
+            <Table
+              loading={loading}
+              history1={history1}
+              history2={history2}
+              history3={history3}
+              history4={history4}
+              history5={history5}
+              history6={history6}
+              history7={history7}
+            />
           ) : (
             // </div>
             ""

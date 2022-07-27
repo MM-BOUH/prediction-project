@@ -45,7 +45,7 @@ export const predictionHistoryReducer1 = (
     case PREDICTION_HISTORY1:
       return {
         loading: false,
-        predict_data_reducer: action.payload,
+        prediction_history1: action.payload,
       }
 
     default:
@@ -61,7 +61,7 @@ export const predictionHistoryReducer2 = (
     case PREDICTION_HISTORY2:
       return {
         loading: false,
-        predict_data_reducer: action.payload,
+        prediction_history2: action.payload,
       }
 
     default:
@@ -76,7 +76,7 @@ export const predictionHistoryReducer3 = (
     case PREDICTION_HISTORY3:
       return {
         loading: false,
-        predict_data_reducer: action.payload,
+        prediction_history3: action.payload,
       }
 
     default:
@@ -92,7 +92,7 @@ export const predictionHistoryReducer4 = (
     case PREDICTION_HISTORY4:
       return {
         loading: false,
-        predict_data_reducer: action.payload,
+        prediction_history4: action.payload,
       }
 
     default:
@@ -108,7 +108,7 @@ export const predictionHistoryReducer5 = (
     case PREDICTION_HISTORY5:
       return {
         loading: false,
-        predict_data_reducer: action.payload,
+        prediction_history5: action.payload,
       }
 
     default:
@@ -124,7 +124,7 @@ export const predictionHistoryReducer6 = (
     case PREDICTION_HISTORY6:
       return {
         loading: false,
-        predict_data_reducer: action.payload,
+        prediction_history6: action.payload,
       }
 
     default:
@@ -140,7 +140,7 @@ export const predictionHistoryReducer7 = (
     case PREDICTION_HISTORY7:
       return {
         loading: false,
-        predict_data_reducer: action.payload,
+        prediction_history7: action.payload,
       }
 
     default:

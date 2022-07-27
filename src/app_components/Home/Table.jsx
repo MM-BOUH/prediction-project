@@ -1,6 +1,15 @@
 import React from "react"
 
-function Table() {
+function Table(props) {
+  const empty = "..."
+  const { loading, prediction_history1 } = props.history1
+  const { prediction_history2 } = props.history2
+  const { prediction_history3 } = props.history3
+  const { prediction_history4 } = props.history4
+  const { prediction_history5 } = props.history5
+  const { prediction_history6 } = props.history6
+  const { prediction_history7 } = props.history7
+
   return (
     <div class="flex flex-col">
       <div class="overflow-x-auto ">
@@ -17,158 +26,240 @@ function Table() {
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    1st prediction
+                    BMI
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    2nd prediction
+                    SPO2
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    3rd prediction
+                    Pulse rate
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    4th prediction
+                    Temperature
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    5th prediction
+                    BP(sys)
                   </th>
                   <th
                     scope="col"
                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                   >
-                    6th prediction
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                  >
-                    7th prediction
+                    BP(DIA)
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {/* For the BMI  */}
+                {/* First prediction */}
                 <tr class="border-b">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    BMI
+                    1st prediction
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    19
+                  <td class="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                    {prediction_history1.predicted_data["bmi"]}
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    36.5
+                  <td class="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                    {prediction_history1.predicted_data["spo2"]}
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    110
+                  <td class="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                    {prediction_history1.predicted_data["pulse_rate"]}
                   </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    75
+                  <td class="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                    {prediction_history1.predicted_data["temperature"]}
+                  </td>
+                  <td class="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                    {prediction_history1.predicted_data["bp_sys"]}
+                  </td>
+                  <td class="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                    {prediction_history1.predicted_data["bp_dia"]}
                   </td>
                 </tr>
 
-                {/* For the SPO2  */}
-                <tr class="border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    SPO2
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    19
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    36.5
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    110
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    75
-                  </td>
-                </tr>
-                {/* For the pulse rate */}
-                <tr class="border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Pulse rate
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    19
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    36.5
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    110
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    75
-                  </td>
-                </tr>
-                {/* For the temperature */}
-                <tr class="border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Temperature
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    19
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    36.5
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    110
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    75
-                  </td>
-                </tr>
+                {/* Second Prediction */}
+                {prediction_history2.length !== 0 ? (
+                  <tr class="border-b">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      2nd prediction
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history2.actual_data["bmi"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history2.predicted_data["spo2"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history2.predicted_data["pulse_rate"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history2.predicted_data["temperature"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history2.predicted_data["bp_sys"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history2.predicted_data["bp_dia"]}
+                    </td>
+                  </tr>
+                ) : (
+                  ""
+                )}
 
-                {/* For the BP SYS */}
-                <tr class="border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    BP(SYS)
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    19
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    36.5
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    110
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    75
-                  </td>
-                </tr>
+                {/* Third Prediction */}
+                {prediction_history3.length !== 0 ? (
+                  <tr class="border-b">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      3rd prediction
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history3.actual_data["bmi"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history3.actual_data["spo2"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history3.predicted_data["pulse_rate"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history3.predicted_data["temperature"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history3.predicted_data["bp_sys"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history3.predicted_data["bp_dia"]}
+                    </td>
+                  </tr>
+                ) : (
+                  ""
+                )}
+                {/* Fourth Prediction */}
+                {prediction_history4.length !== 0 ? (
+                  <tr class="border-b">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      4th prediction
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history4.actual_data["bmi"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history4.actual_data["spo2"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history4.actual_data["pulse_rate"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history4.predicted_data["temperature"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history4.predicted_data["bp_sys"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history4.predicted_data["bp_dia"]}
+                    </td>
+                  </tr>
+                ) : (
+                  ""
+                )}
 
-                {/* For the BP DIA */}
-                <tr class="border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    BP(DIA)
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    19
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    36.5
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    110
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    75
-                  </td>
-                </tr>
+                {/* Fifth Prediction */}
+                {prediction_history5.length !== 0 ? (
+                  <tr class="border-b">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      5th prediction
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history5.actual_data["bmi"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history5.actual_data["spo2"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history5.actual_data["pulse_rate"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history5.actual_data["temperature"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history5.predicted_data["bp_sys"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history5.predicted_data["bp_dia"]}
+                    </td>
+                  </tr>
+                ) : (
+                  ""
+                )}
+
+                {/* Sixth Prediction */}
+
+                {prediction_history6.length !== 0 ? (
+                  <tr class="border-b">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      6th prediction
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history6.actual_data["bmi"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history6.actual_data["spo2"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history6.actual_data["pulse_rate"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history6.actual_data["temperature"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history6.actual_data["bp_sys"]}
+                    </td>
+                    <td class="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history6.predicted_data["bp_dia"]}
+                    </td>
+                  </tr>
+                ) : (
+                  ""
+                )}
+
+                {/* Seventh Prediction */}
+
+                {prediction_history7.length !== 0 ? (
+                  <tr class="border-b">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      7th prediction
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history7.actual_data["bmi"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history7.actual_data["spo2"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history7.actual_data["pulse_rate"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history7.actual_data["temperature"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history7.actual_data["bp_sys"]}
+                    </td>
+                    <td class="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
+                      {prediction_history7.actual_data["bp_dia"]}
+                    </td>
+                  </tr>
+                ) : (
+                  ""
+                )}
               </tbody>
             </table>
           </div>
