@@ -27,8 +27,8 @@ function HomeStepper() {
     "SPO2",
     "Pulse rate",
     "Temperature",
-    "BP_SYS",
-    "BP_DIA",
+    // "BP_SYS",
+    // "BP_DIA",
     "Confirmation",
   ]
 
@@ -44,11 +44,11 @@ function HomeStepper() {
         return <Feature3 />
       case 5:
         return <Feature4 />
+      // case 6:
+      //   return <Feature5 />
+      // case 7:
+      //   return <Feature6 />
       case 6:
-        return <Feature5 />
-      case 7:
-        return <Feature6 />
-      case 8:
         return <Final />
       default:
     }

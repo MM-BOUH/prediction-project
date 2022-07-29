@@ -18,7 +18,7 @@ export default function StepperControl({
       </button>
       {loadingNext ? (
         <button
-          onClick={() => handleClick("next")}
+          // onClick={() => handleClick("next")}
           className="cursor-pointer rounded-lg bg-brightRed py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
           disabled={loadingNext === true}
         >

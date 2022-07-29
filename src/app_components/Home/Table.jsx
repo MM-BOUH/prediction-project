@@ -1,8 +1,9 @@
 import React from "react"
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton"
 
 function Table(props) {
-  const empty = "..."
-  const { loading, prediction_history1 } = props.history1
+  const loading = props.loading
+  const { prediction_history1 } = props.history1
   const { prediction_history2 } = props.history2
   const { prediction_history3 } = props.history3
   const { prediction_history4 } = props.history4
