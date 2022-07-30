@@ -1,10 +1,13 @@
 import { useStepperContext } from "../../contexts/StepperContext"
 import { INPUT_VALIDATION } from "../../actions/types"
 import { useHomeContext } from "../../contexts/HomeContext"
+import { useEffect } from "react"
 
-export default function Feature2() {
+export default function Feature2(props) {
   const { userData, setUserData } = useStepperContext()
   const { userDataHome, setUserDataHome } = useHomeContext()
+
+  const setIsButtonDisabled = props.setIsButtonDisabled
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -13,6 +16,18 @@ export default function Feature2() {
       setUserDataHome({ ...userDataHome, [name]: value })
     }
   }
+
+  useEffect(() => {
+    if (Object.keys(userDataHome).length >= 5) {
+      if (userDataHome["SPO2"] !== "") {
+        setIsButtonDisabled(false)
+      } else {
+        setIsButtonDisabled(true)
+      }
+    } else {
+      setIsButtonDisabled(true)
+    }
+  }, [userDataHome])
   return (
     <div className="flex md:flex-row sm:flex-col">
       <div className="w-full mx-2 flex-1">

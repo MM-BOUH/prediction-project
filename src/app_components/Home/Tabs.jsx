@@ -26,9 +26,7 @@ function Tabs() {
   const history6 = useSelector((state) => state.history6)
   const history7 = useSelector((state) => state.history7)
 
-  useEffect(() => {
-    console.log("Step from useEffect ", predict_data_reducer)
-  }, [predict_data_reducer])
+  useEffect(() => {}, [predict_data_reducer])
 
   return (
     <React.Fragment>

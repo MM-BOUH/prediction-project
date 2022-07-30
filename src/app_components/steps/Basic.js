@@ -1,12 +1,31 @@
 import { useStepperContext } from "../../contexts/StepperContext"
 import { useHomeContext } from "../../contexts/HomeContext"
 import { INPUT_VALIDATION } from "../../actions/types"
-import { useState } from "react"
-export default function Basic() {
+import { useEffect, useState } from "react"
+import _ from "lodash"
+
+export default function Basic(props) {
   const { userData, setUserData } = useStepperContext()
   const { userDataHome, setUserDataHome } = useHomeContext()
   const [gender, setGender] = useState()
 
+  const setIsButtonDisabled = props.setIsButtonDisabled
+
+  useEffect(() => {
+    if (Object.keys(userDataHome).length >= 2) {
+      if (
+        userDataHome["age"] !== "" &&
+        (userDataHome["gender"] === "Male" ||
+          userDataHome["gender"] === "Female")
+      ) {
+        setIsButtonDisabled(false)
+      } else {
+        setIsButtonDisabled(true)
+      }
+    } else {
+      setIsButtonDisabled(true)
+    }
+  }, [userDataHome])
   const handleChange = (e) => {
     const { name, value } = e.target
     if (INPUT_VALIDATION.test(value)) {
