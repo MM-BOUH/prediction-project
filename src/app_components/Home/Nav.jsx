@@ -15,8 +15,8 @@ function Nav() {
 
           {/* <!-- Button --> */}
           <a
-            // href="#"
-            className=" p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight md:block"
+            href="localhost:8000"
+            className="p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight md:block"
           >
             About PHC
           </a>
