@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
+import { RingLoader } from "react-spinners"
 import ChartContent from "./ChartContent"
 import Table from "./Table"
-import { RingLoader } from "react-spinners"
 
 function Tabs() {
   const [activeTab, setActiveTab] = useState(0)

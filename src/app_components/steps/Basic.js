@@ -1,8 +1,7 @@
-import { useStepperContext } from "../../contexts/StepperContext"
-import { useHomeContext } from "../../contexts/HomeContext"
-import { INPUT_VALIDATION } from "../../actions/types"
 import { useEffect, useState } from "react"
-import _ from "lodash"
+import { INPUT_VALIDATION } from "../../actions/types"
+import { useHomeContext } from "../../contexts/HomeContext"
+import { useStepperContext } from "../../contexts/StepperContext"
 
 export default function Basic(props) {
   const { userData, setUserData } = useStepperContext()

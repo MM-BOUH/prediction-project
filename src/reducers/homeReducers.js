@@ -1,8 +1,4 @@
 import {
-  PREDICT_DATA_REQUEST,
-  PREDICT_DATA_SUCCESS,
-  PREDICT_DATA_FAIL,
-
   // For the prediction history
   PREDICTION_HISTORY1,
   PREDICTION_HISTORY2,
@@ -11,6 +7,9 @@ import {
   PREDICTION_HISTORY5,
   PREDICTION_HISTORY6,
   PREDICTION_HISTORY7,
+  PREDICT_DATA_FAIL,
+  PREDICT_DATA_REQUEST,
+  PREDICT_DATA_SUCCESS,
 } from "../actions/types"
 export const predictDataReducer = (
   state = { predict_data_reducer: [] },

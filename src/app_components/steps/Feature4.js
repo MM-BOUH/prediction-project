@@ -1,7 +1,7 @@
-import { useStepperContext } from "../../contexts/StepperContext"
+import { useEffect } from "react"
 import { INPUT_VALIDATION } from "../../actions/types"
 import { useHomeContext } from "../../contexts/HomeContext"
-import { useEffect } from "react"
+import { useStepperContext } from "../../contexts/StepperContext"
 
 export default function Feature4(props) {
   const { userData, setUserData } = useStepperContext()

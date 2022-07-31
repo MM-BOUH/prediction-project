@@ -1,6 +1,6 @@
-import { SyncLoader } from "react-spinners"
 import React from "react"
 import toast, { Toaster } from "react-hot-toast"
+import { SyncLoader } from "react-spinners"
 
 export default function StepperControl({
   handleClick,

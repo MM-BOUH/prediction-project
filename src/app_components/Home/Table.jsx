@@ -1,5 +1,4 @@
 import React from "react"
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton"
 
 function Table(props) {
   const loading = props.loading

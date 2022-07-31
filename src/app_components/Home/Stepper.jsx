@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 const Stepper = ({ steps, currentStep }) => {
   const [newStep, setNewStep] = useState([])

@@ -1,9 +1,9 @@
-import "./App.css"
-import Home from "./app_components/Home/Home"
-import configureStore from "./config/configureStore"
 import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
+import "./App.css"
+import Home from "./app_components/Home/Home"
 import history from "./browserHistory"
+import configureStore from "./config/configureStore"
 
 // If there is any authentication system.
 // To get the user reconnected, you need to dispatch loading the user
