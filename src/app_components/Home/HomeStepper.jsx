@@ -67,12 +67,15 @@ function HomeStepper() {
   }
 
   return (
-    <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl sm:w-1/2">
+    <div
+      className="mx-auto rounded-2xl bg-white pb-2 shadow-xl sm:w-1/2 
+    "
+    >
       {/* Stepper */}
-      <div className="horizontal container mt-5 ">
+      <div className="horizontal container mt-5">
         <Stepper steps={steps} currentStep={currentStep} />
 
-        <div className="my-4 p-5 ">
+        <div className="my-4 p-5 sm:-mt-12 md:my-4 md:p-5">
           <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
         </div>
       </div>
