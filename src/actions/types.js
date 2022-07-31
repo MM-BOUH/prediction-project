@@ -1,5 +1,7 @@
 // For the backend development host
-export const HOST = "http://127.0.0.1:8000/"
+// export const HOST = "http://127.0.0.1:8000/"
+// For the backend production host
+export const HOST = "https://phc-prediction.herokuapp.com/"
 
 // For inputs that accept only numbers
 export const INPUT_VALIDATION = /^[+-]?\d*(?:[.,]\d*)?$/
