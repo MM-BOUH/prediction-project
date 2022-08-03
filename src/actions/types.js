@@ -1,10 +1,21 @@
 // For the backend development host
-// export const HOST = "http://127.0.0.1:8000/"
+export const HOST = "http://127.0.0.1:8000/"
 // For the backend production host
-export const HOST = "https://phc-prediction.herokuapp.com/"
+// export const HOST = "https://phc-prediction.herokuapp.com/"
 
 // For inputs that accept only numbers
 export const INPUT_VALIDATION = /^[+-]?\d*(?:[.,]\d*)?$/
+
+// Data range for the fields
+export const AGE_MIN_VALUE = 0
+export const BMI_MIN_VALUE = 18
+export const BMI_MAX_AVALUE = 35
+export const SPO2_MIN_VALUE = 85
+export const SPO2_MAX_VALUE = 100
+export const Pulse_Rate_MIN_VALUE = 50
+export const Pulse_Rate_MAX_VALUE = 130
+export const Temperature_MIN_VALUE = 33
+export const Temperature_MAX_VALUE = 39
 
 // Home
 export const PREDICT_DATA_REQUEST = "PREDICT_DATA_REQUEST"

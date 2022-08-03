@@ -13,8 +13,18 @@ import Stepper from "./Stepper"
 import StepperControl from "./StepperControl"
 // import Feature5 from "../steps/Feature5"
 // import Feature6 from "../steps/Feature6"
+import {
+  AGE_MIN_VALUE,
+  BMI_MAX_AVALUE,
+  BMI_MIN_VALUE,
+  Pulse_Rate_MAX_VALUE,
+  Pulse_Rate_MIN_VALUE,
+  SPO2_MAX_VALUE,
+  SPO2_MIN_VALUE,
+  Temperature_MAX_VALUE,
+  Temperature_MIN_VALUE,
+} from "../../actions/types"
 import Final from "../steps/Final"
-
 function HomeStepper() {
   const [currentStep, setCurrentStep] = useState(1)
   const { userDataHome } = useHomeContext()
@@ -53,16 +63,56 @@ function HomeStepper() {
     }
   }
 
+  const checkValues = (userdataHome, currentSt) => {
+    if (currentSt === 1 && userdataHome["age"] <= AGE_MIN_VALUE) {
+      alert(`Age should be greater than or equal ${AGE_MIN_VALUE}`)
+      setCurrentStep(currentSt)
+    } else if (
+      currentStep === 2 &&
+      (userdataHome["bmi"] < BMI_MIN_VALUE ||
+        userdataHome["bmi"] > BMI_MAX_AVALUE)
+    ) {
+      alert(`BMI should be between ${BMI_MIN_VALUE} and ${BMI_MAX_AVALUE}`)
+      setCurrentStep(currentSt)
+    } else if (
+      currentStep === 3 &&
+      (userdataHome["SPO2"] < SPO2_MIN_VALUE ||
+        userdataHome["SPO2"] > SPO2_MAX_VALUE)
+    ) {
+      alert(`SPO2 should be between ${SPO2_MIN_VALUE} and ${SPO2_MAX_VALUE}`)
+      setCurrentStep(currentSt)
+    } else if (
+      currentStep === 4 &&
+      (userdataHome["pulse_rate"] < Pulse_Rate_MIN_VALUE ||
+        userdataHome["pulse_rate"] > Pulse_Rate_MAX_VALUE)
+    ) {
+      alert(
+        `Pulse rate should be between ${Pulse_Rate_MIN_VALUE} and ${Pulse_Rate_MAX_VALUE}`
+      )
+      setCurrentStep(currentSt)
+    } else if (
+      currentStep === 5 &&
+      (userdataHome["temperature"] < Temperature_MIN_VALUE ||
+        userdataHome["temperature"] > Temperature_MAX_VALUE)
+    ) {
+      alert(
+        `Temperature should be between ${Temperature_MIN_VALUE} and ${Temperature_MAX_VALUE}`
+      )
+      setCurrentStep(currentSt)
+    } else {
+      userDataHome["currentStep"] = currentStep
+      dispatch(predictDataAction(userDataHome, setLoadingNext))
+    }
+  }
   const handleClick = (direction) => {
     let newStep = currentStep
-
     direction === "next" ? newStep++ : newStep--
+
     // check if steps are within bounds
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
 
     if (direction === "next") {
-      userDataHome["currentStep"] = currentStep
-      dispatch(predictDataAction(userDataHome, setLoadingNext))
+      checkValues(userDataHome, currentStep)
     }
   }
 

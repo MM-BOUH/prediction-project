@@ -25,6 +25,7 @@ export default function Basic(props) {
       setIsButtonDisabled(true)
     }
   }, [userDataHome])
+
   const handleChange = (e) => {
     const { name, value } = e.target
     if (INPUT_VALIDATION.test(value)) {
