@@ -1,5 +1,5 @@
 import React from "react"
-
+import { conversion } from "../../utils/Functions"
 function Table(props) {
   const { prediction_history1 } = props.history1
   const { prediction_history2 } = props.history2
@@ -66,22 +66,26 @@ function Table(props) {
                     1st prediction
                   </td>
                   <td className="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                    {prediction_history1.predicted_data["bmi"]}
+                    {conversion(prediction_history1.predicted_data["bmi"])}
                   </td>
                   <td className="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                    {prediction_history1.predicted_data["spo2"]}
+                    {conversion(prediction_history1.predicted_data["spo2"])}
                   </td>
                   <td className="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                    {prediction_history1.predicted_data["pulse_rate"]}
+                    {conversion(
+                      prediction_history1.predicted_data["pulse_rate"]
+                    )}
                   </td>
                   <td className="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                    {prediction_history1.predicted_data["temperature"]}
+                    {conversion(
+                      prediction_history1.predicted_data["temperature"]
+                    )}
                   </td>
                   <td className="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                    {prediction_history1.predicted_data["bp_sys"]}
+                    {conversion(prediction_history1.predicted_data["bp_sys"])}
                   </td>
                   <td className="text-sm text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                    {prediction_history1.predicted_data["bp_dia"]}
+                    {conversion(prediction_history1.predicted_data["bp_dia"])}
                   </td>
                 </tr>
 
@@ -92,22 +96,26 @@ function Table(props) {
                       2nd prediction
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history2.actual_data["bmi"]}
+                      {conversion(prediction_history2.actual_data["bmi"])}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history2.predicted_data["spo2"]}
+                      {conversion(prediction_history2.predicted_data["spo2"])}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history2.predicted_data["pulse_rate"]}
+                      {conversion(
+                        prediction_history2.predicted_data["pulse_rate"]
+                      )}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history2.predicted_data["temperature"]}
+                      {conversion(
+                        prediction_history2.predicted_data["temperature"]
+                      )}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history2.predicted_data["bp_sys"]}
+                      {conversion(prediction_history2.predicted_data["bp_sys"])}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history2.predicted_data["bp_dia"]}
+                      {conversion(prediction_history2.predicted_data["bp_dia"])}
                     </td>
                   </tr>
                 ) : (
@@ -121,22 +129,26 @@ function Table(props) {
                       3rd prediction
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history3.actual_data["bmi"]}
+                      {conversion(prediction_history3.actual_data["bmi"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history3.actual_data["spo2"]}
+                      {conversion(prediction_history3.actual_data["spo2"])}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history3.predicted_data["pulse_rate"]}
+                      {conversion(
+                        prediction_history3.predicted_data["pulse_rate"]
+                      )}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history3.predicted_data["temperature"]}
+                      {conversion(
+                        prediction_history3.predicted_data["temperature"]
+                      )}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history3.predicted_data["bp_sys"]}
+                      {conversion(prediction_history3.predicted_data["bp_sys"])}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history3.predicted_data["bp_dia"]}
+                      {conversion(prediction_history3.predicted_data["bp_dia"])}
                     </td>
                   </tr>
                 ) : (
@@ -149,22 +161,26 @@ function Table(props) {
                       4th prediction
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history4.actual_data["bmi"]}
+                      {conversion(prediction_history4.actual_data["bmi"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history4.actual_data["spo2"]}
+                      {conversion(prediction_history4.actual_data["spo2"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history4.actual_data["pulse_rate"]}
+                      {conversion(
+                        prediction_history4.actual_data["pulse_rate"]
+                      )}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history4.predicted_data["temperature"]}
+                      {conversion(
+                        prediction_history4.predicted_data["temperature"]
+                      )}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history4.predicted_data["bp_sys"]}
+                      {conversion(prediction_history4.predicted_data["bp_sys"])}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history4.predicted_data["bp_dia"]}
+                      {conversion(prediction_history4.predicted_data["bp_dia"])}
                     </td>
                   </tr>
                 ) : (
@@ -178,22 +194,26 @@ function Table(props) {
                       5th prediction
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history5.actual_data["bmi"]}
+                      {conversion(prediction_history5.actual_data["bmi"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history5.actual_data["spo2"]}
+                      {conversion(prediction_history5.actual_data["spo2"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history5.actual_data["pulse_rate"]}
+                      {conversion(
+                        prediction_history5.actual_data["pulse_rate"]
+                      )}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history5.actual_data["temperature"]}
+                      {conversion(
+                        prediction_history5.actual_data["temperature"]
+                      )}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history5.predicted_data["bp_sys"]}
+                      {conversion(prediction_history5.predicted_data["bp_sys"])}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history5.predicted_data["bp_dia"]}
+                      {conversion(prediction_history5.predicted_data["bp_dia"])}
                     </td>
                   </tr>
                 ) : (
@@ -208,22 +228,26 @@ function Table(props) {
                       6th prediction
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history6.actual_data["bmi"]}
+                      {conversion(prediction_history6.actual_data["bmi"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history6.actual_data["spo2"]}
+                      {conversion(prediction_history6.actual_data["spo2"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history6.actual_data["pulse_rate"]}
+                      {conversion(
+                        prediction_history6.actual_data["pulse_rate"]
+                      )}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history6.actual_data["temperature"]}
+                      {conversion(
+                        prediction_history6.actual_data["temperature"]
+                      )}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history6.actual_data["bp_sys"]}
+                      {conversion(prediction_history6.actual_data["bp_sys"])}
                     </td>
                     <td className="text-md text-blue-400 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history6.predicted_data["bp_dia"]}
+                      {conversion(prediction_history6.predicted_data["bp_dia"])}
                     </td>
                   </tr>
                 ) : (
@@ -238,22 +262,26 @@ function Table(props) {
                       7th prediction
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history7.actual_data["bmi"]}
+                      {conversion(prediction_history7.actual_data["bmi"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history7.actual_data["spo2"]}
+                      {conversion(prediction_history7.actual_data["spo2"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history7.actual_data["pulse_rate"]}
+                      {conversion(
+                        prediction_history7.actual_data["pulse_rate"]
+                      )}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history7.actual_data["temperature"]}
+                      {conversion(
+                        prediction_history7.actual_data["temperature"]
+                      )}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history7.actual_data["bp_sys"]}
+                      {conversion(prediction_history7.actual_data["bp_sys"])}
                     </td>
                     <td className="text-md text-green-500 font-light px-6 py-4 whitespace-nowrap">
-                      {prediction_history7.actual_data["bp_dia"]}
+                      {conversion(prediction_history7.actual_data["bp_dia"])}
                     </td>
                   </tr>
                 ) : (
