@@ -1,4 +1,9 @@
-export default function Final() {
+import toast, { Toaster } from "react-hot-toast"
+import { SyncLoader } from "react-spinners"
+
+export default function Final(props) {
+  const warn = () => toast.error("Wait until this prediction finishes!")
+
   return (
     <div className="container md:mt-10">
       <div className="flex flex-col items-center">
@@ -29,11 +34,26 @@ export default function Final() {
         <div className="text-lg font-semibold text-gray-500">
           For spending sometime with us.
         </div>
-        <a className="mt-10" href="/">
-          <button className="h-10 px-5 text-green-700 transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-green-500 hover:text-green-100">
-            Close
+        {props.loadingNext === true ? (
+          <button
+            className="mt-10 h-10 px-5 text-green-700 transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-green-500 hover:text-green-100
+            "
+            onClick={warn}
+            disabled={props.loadingNext === true}
+          >
+            <SyncLoader color={"#ebebf2"} loadingNext={true} size={12} />
+            <Toaster position="top-right" />
           </button>
-        </a>
+        ) : (
+          <a className="mt-10" href="/">
+            <button
+              className="h-10 px-5 text-green-700 transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-green-500 hover:text-green-100
+              "
+            >
+              Close
+            </button>
+          </a>
+        )}
       </div>
     </div>
   )

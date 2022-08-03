@@ -58,7 +58,7 @@ function HomeStepper() {
         return <Feature4 setIsButtonDisabled={setIsButtonDisabled} />
 
       case 6:
-        return <Final />
+        return <Final loadingNext={loadingNext} />
       default:
     }
   }

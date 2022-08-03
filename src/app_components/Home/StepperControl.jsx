@@ -29,7 +29,7 @@ export default function StepperControl({
             className="cursor-not-allowed rounded-lg bg-brightRed py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
             onClick={warn}
           >
-            <SyncLoader color={"#ebebf2"} loading={true} size={12} />
+            <SyncLoader color={"#ebebf2"} loadingNext={true} size={12} />
           </button>
           <Toaster position="top-right" reverseOrder={false} />
         </>
