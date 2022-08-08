@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { RingLoader } from "react-spinners"
 import ChartContent from "./ChartContent"
 import Table from "./Table"
 
@@ -16,7 +15,7 @@ function Tabs() {
 
   // To get the data from state and pass it through the chart and the tab components
   const predictionResult = useSelector((state) => state.predictDataIndex)
-  const { loading, predict_data_reducer } = predictionResult
+  const { predict_data_reducer } = predictionResult
 
   const history1 = useSelector((state) => state.history1)
   const history2 = useSelector((state) => state.history2)
@@ -55,22 +54,24 @@ function Tabs() {
         </div>
 
         {
-          predict_data_reducer.length === 0 ? (
-            <div className="mx-auto mt-8 justify-center mb-3">
-              <div>
-                <RingLoader color={"#0099ff"} loading={true} />
-              </div>
-            </div>
-          ) : activeTab === 0 ? (
+          // predict_data_reducer.length === 0 ? (
+          // <div className="mx-auto mt-8 justify-center mb-3">
+          //   <div>
+          //     {/* <RingLoader color={"#0099ff"} loading={true} /> */}
+          //     Enter some data to start predicting
+          //   </div>
+          // </div>
+          // ) :
+          activeTab === 0 ? (
             // <div className="mx-auto mt-8 justify-center ">
             <div className="mx-auto mt-8 justify-center">
               <ChartContent predictionResult={predictionResult} />
             </div>
           ) : // </div>
-          activeTab === 1 && predict_data_reducer.length !== 0 ? (
+          activeTab === 1 ? (
             // <div className="mt-8 md:overflow-visible">
             <Table
-              loading={loading}
+              predictionResult={predictionResult}
               history1={history1}
               history2={history2}
               history3={history3}
@@ -83,11 +84,6 @@ function Tabs() {
             // </div>
             ""
           )
-          //   (
-          // <div className="mx-auto mt-8 justify-center mb-3">
-          //   <h2>Enter some data to start your prediction journey please!</h2>
-          // </div>
-          // )
         }
       </div>
     </React.Fragment>
