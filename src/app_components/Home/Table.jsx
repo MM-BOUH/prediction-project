@@ -14,9 +14,9 @@ function Table(props) {
   return (
     <>
       {loading ? (
-        <div>
+        <div className="text-3xl mx-auto mt-8 justify-center">
           {/* <RingLoader color={"#0099ff"} loading={true} /> */}
-          考え中...
+          考え中🤖...
         </div>
       ) : error ? (
         <div className="mx-auto mt-8 justify-center mb-3">
@@ -337,7 +337,9 @@ function Table(props) {
           </div>
         </div>
       ) : (
-        <div>Enter some data to start predicting</div>
+        <div className="mx-auto mt-8 justify-center">
+          Enter some data to start predicting!
+        </div>
       )}
     </>
   )

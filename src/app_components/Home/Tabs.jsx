@@ -63,7 +63,6 @@ function Tabs() {
           // </div>
           // ) :
           activeTab === 0 ? (
-            // <div className="mx-auto mt-8 justify-center ">
             <div className="mx-auto mt-8 justify-center">
               <ChartContent predictionResult={predictionResult} />
             </div>

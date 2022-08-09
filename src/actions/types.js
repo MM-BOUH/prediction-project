@@ -8,6 +8,7 @@ export const INPUT_VALIDATION = /^[+-]?\d*(?:[.,]\d*)?$/
 
 // Data range for the fields
 export const AGE_MIN_VALUE = 0
+export const AGE_MAX_VALUE = 120
 export const BMI_MIN_VALUE = 18
 export const BMI_MAX_AVALUE = 35
 export const SPO2_MIN_VALUE = 85

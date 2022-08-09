@@ -2,6 +2,7 @@ import React from "react"
 import Chart from "react-apexcharts"
 import LoadingSound from "../../assets/bensound-creativeminds.mp3"
 import { conversion } from "../../utils/Functions"
+// import useSound from "use-sound"
 function ChartContent(props) {
   const { loading, error, predict_data_reducer } = props.predictionResult
 
@@ -132,40 +133,52 @@ function ChartContent(props) {
       ],
     },
   ]
-
   // To play music while loading
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
+  }
+  // const sound = new Audio(LoadingSound)
+  async function demo() {
+    // await sleep(3000)
+  }
+  const sound = new Audio(LoadingSound)
+
   const play = (value) => {
-    const sound = new Audio(LoadingSound)
-    if (value === "loading") {
-      // const sound = new Audio(LoadingSound)
-      sound.vloume = 0.008
+    if (value === "play") {
       sound.play()
-    } else if (value === "stop") {
-      sound.pause()
-      sound.currentTime = 0
     }
   }
+  const stop = (value) => {
+    if (value === "stop") {
+      sound.pause()
+    }
+  }
+  // function isPlaying(sound) {
+  //   return !sound.paused
+  // }
+
   return (
     <>
       {loading ? (
-        <div>
+        <div className="text-3xl">
           {/* <RingLoader color={"#0099ff"} loading={true} /> */}
-          考え中...
+          考え中🤖...
           {/* {(play = (loading) => {})} */}
-          {play("loading")}
+          {play("play")}
         </div>
       ) : error ? (
         <div className="mx-auto mt-8 justify-center mb-3">
           <h2>An error has occurred!</h2>
-          {play("stop")}
+          {stop("stop")}
         </div>
       ) : predict_data_reducer.length !== 0 ? (
         <>
-          {play("stop")}
+          {stop("stop")}
+
           <Chart options={options} series={series} type="bar" width="470" />
         </>
       ) : (
-        <div>Enter some data to start predicting</div>
+        <div>Enter some data to start predicting!</div>
       )}
 
       {/* <div>

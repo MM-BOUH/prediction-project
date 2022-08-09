@@ -14,6 +14,7 @@ import StepperControl from "./StepperControl"
 // import Feature5 from "../steps/Feature5"
 // import Feature6 from "../steps/Feature6"
 import {
+  AGE_MAX_VALUE,
   AGE_MIN_VALUE,
   BMI_MAX_AVALUE,
   BMI_MIN_VALUE,
@@ -64,8 +65,12 @@ function HomeStepper() {
   }
 
   const checkValues = (userdataHome, currentSt) => {
-    if (currentSt === 1 && userdataHome["age"] <= AGE_MIN_VALUE) {
-      alert(`Age should be greater than or equal ${AGE_MIN_VALUE}`)
+    if (
+      currentSt === 1 &&
+      (userdataHome["age"] < AGE_MIN_VALUE ||
+        userdataHome["age"] > AGE_MAX_VALUE)
+    ) {
+      alert(`Age should be between ${AGE_MIN_VALUE} and ${AGE_MAX_VALUE}`)
       setCurrentStep(currentSt)
     } else if (
       currentStep === 2 &&
