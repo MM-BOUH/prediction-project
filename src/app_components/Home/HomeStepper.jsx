@@ -151,7 +151,7 @@ function HomeStepper() {
 
   return (
     <div
-      className="mx-auto rounded-2xl bg-white pb-2 shadow-xl sm:w-1/2 
+      className="mx-auto rounded-2xl bg-white pb-2 shadow-xl sm:w-1/2 md:w-fit
     "
     >
       {/* Stepper */}
