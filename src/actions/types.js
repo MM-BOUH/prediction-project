@@ -9,7 +9,7 @@ export const INPUT_VALIDATION = /^[+-]?\d*(?:[.,]\d*)?$/
 // Data range for the fields
 export const AGE_MIN_VALUE = 0
 export const AGE_MAX_VALUE = 120
-export const BMI_MIN_VALUE = 18
+export const BMI_MIN_VALUE = 15
 export const BMI_MAX_AVALUE = 35
 export const SPO2_MIN_VALUE = 85
 export const SPO2_MAX_VALUE = 100
@@ -17,7 +17,10 @@ export const Pulse_Rate_MIN_VALUE = 50
 export const Pulse_Rate_MAX_VALUE = 130
 export const Temperature_MIN_VALUE = 33
 export const Temperature_MAX_VALUE = 39
-
+export const BP_SYS_MIN_VALUE = 70
+export const BP_SYS_MAX_VALUE = 220
+export const BP_DIA_MIN_VALUE = 50
+export const BP_DIA_MAX_VALUE = 140
 // Home
 export const PREDICT_DATA_REQUEST = "PREDICT_DATA_REQUEST"
 export const PREDICT_DATA_SUCCESS = "PREDICT_DATA_SUCCESS"

@@ -4,20 +4,15 @@ import { useHomeContext } from "../../contexts/HomeContext"
 import { UseContextProvider } from "../../contexts/StepperContext"
 
 import { predictDataAction } from "../../actions/homeActions"
-import Basic from "../steps/Basic"
-import Feature1 from "../steps/Feature1"
-import Feature2 from "../steps/Feature2"
-import Feature3 from "../steps/Feature3"
-import Feature4 from "../steps/Feature4"
-import Stepper from "./Stepper"
-import StepperControl from "./StepperControl"
-// import Feature5 from "../steps/Feature5"
-// import Feature6 from "../steps/Feature6"
 import {
   AGE_MAX_VALUE,
   AGE_MIN_VALUE,
   BMI_MAX_AVALUE,
   BMI_MIN_VALUE,
+  BP_DIA_MAX_VALUE,
+  BP_DIA_MIN_VALUE,
+  BP_SYS_MAX_VALUE,
+  BP_SYS_MIN_VALUE,
   Pulse_Rate_MAX_VALUE,
   Pulse_Rate_MIN_VALUE,
   SPO2_MAX_VALUE,
@@ -25,7 +20,16 @@ import {
   Temperature_MAX_VALUE,
   Temperature_MIN_VALUE,
 } from "../../actions/types"
+import Basic from "../steps/Basic"
+import Feature1 from "../steps/Feature1"
+import Feature2 from "../steps/Feature2"
+import Feature3 from "../steps/Feature3"
+import Feature4 from "../steps/Feature4"
+import Feature5 from "../steps/Feature5"
+import Feature6 from "../steps/Feature6"
 import Final from "../steps/Final"
+import Stepper from "./Stepper"
+import StepperControl from "./StepperControl"
 
 function HomeStepper() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -41,8 +45,8 @@ function HomeStepper() {
     "SPO2",
     "Pulse rate",
     "Temperature",
-    // "BP_SYS",
-    // "BP_DIA",
+    "BP_SYS",
+    "BP_DIA",
     "Confirmation",
   ]
 
@@ -58,8 +62,13 @@ function HomeStepper() {
         return <Feature3 setIsButtonDisabled={setIsButtonDisabled} />
       case 5:
         return <Feature4 setIsButtonDisabled={setIsButtonDisabled} />
-
       case 6:
+        return <Feature5 setIsButtonDisabled={setIsButtonDisabled} />
+
+      case 7:
+        return <Feature6 setIsButtonDisabled={setIsButtonDisabled} />
+
+      case 8:
         return <Final loadingNext={loadingNext} />
       default:
     }
@@ -103,6 +112,24 @@ function HomeStepper() {
     ) {
       alert(
         `Temperature should be between ${Temperature_MIN_VALUE} and ${Temperature_MAX_VALUE}`
+      )
+      setCurrentStep(currentSt)
+    } else if (
+      currentStep === 6 &&
+      (userdataHome["bp_sys"] < BP_SYS_MIN_VALUE ||
+        userdataHome["bp_sys"] > BP_SYS_MAX_VALUE)
+    ) {
+      alert(
+        `BP(sys) should be between ${BP_SYS_MIN_VALUE} and ${BP_SYS_MAX_VALUE}`
+      )
+      setCurrentStep(currentSt)
+    } else if (
+      currentStep === 7 &&
+      (userdataHome["bp_dia"] < BP_DIA_MIN_VALUE ||
+        userdataHome["bp_dia"] > BP_DIA_MAX_VALUE)
+    ) {
+      alert(
+        `BP(dia) should be between ${BP_DIA_MIN_VALUE} and ${BP_DIA_MAX_VALUE}`
       )
       setCurrentStep(currentSt)
     } else {
