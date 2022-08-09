@@ -26,6 +26,7 @@ import {
   Temperature_MIN_VALUE,
 } from "../../actions/types"
 import Final from "../steps/Final"
+
 function HomeStepper() {
   const [currentStep, setCurrentStep] = useState(1)
   const { userDataHome } = useHomeContext()

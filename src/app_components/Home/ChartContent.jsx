@@ -134,18 +134,26 @@ function ChartContent(props) {
     },
   ]
   // To play music while loading
-  function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms))
-  }
-  // const sound = new Audio(LoadingSound)
-  async function demo() {
-    // await sleep(3000)
-  }
+  // function sleep(ms) {
+  //   return new Promise((resolve) => setTimeout(resolve, ms))
+  // }
+  // // const sound = new Audio(LoadingSound)
+  // async function demo() {
+  //   // await sleep(3000)
+  // }
   const sound = new Audio(LoadingSound)
 
   const play = (value) => {
     if (value === "play") {
-      sound.play()
+      console.log("First")
+      console.log("length", predict_data_reducer.health_status["currentStep"])
+      if (
+        predict_data_reducer.length !== 0 &&
+        predict_data_reducer.health_status["currentStep"] === 1
+      ) {
+        console.log("Here")
+        sound.play()
+      }
     }
   }
   const stop = (value) => {
@@ -164,17 +172,17 @@ function ChartContent(props) {
           {/* <RingLoader color={"#0099ff"} loading={true} /> */}
           考え中🤖...
           {/* {(play = (loading) => {})} */}
-          {play("play")}
+          {/* {play("play")} */}
         </div>
       ) : error ? (
         <div className="mx-auto mt-8 justify-center mb-3">
           <h2>An error has occurred!</h2>
-          {stop("stop")}
+          {/* {stop("stop")} */}
         </div>
       ) : predict_data_reducer.length !== 0 ? (
         <>
-          {stop("stop")}
-
+          {/* {stop("stop")} */}
+          {play("play")}
           <Chart options={options} series={series} type="bar" width="470" />
         </>
       ) : (
