@@ -3,7 +3,7 @@ import { UseHomeContextProvider } from "../../contexts/HomeContext"
 import HomeStepper from "./HomeStepper"
 import Nav from "./Nav"
 import Tabs from "./Tabs"
-
+import Footer from './Footer'
 function Home() {
   return (
     <React.Fragment>
@@ -12,6 +12,7 @@ function Home() {
         <HomeStepper />
         <Tabs />
       </UseHomeContextProvider>
+      <Footer />
     </React.Fragment>
   )
 }
