@@ -1,9 +1,8 @@
 // For the backend development host
 // export const HOST = "http://127.0.0.1:8000/"
 // export const HOST = "https://192.168.11.7:8000/"
-export const HOST = "https://6d19-133-5-17-169.ngrok.io/"
+export const HOST = "https://a02a-133-5-17-169.ngrok-free.app/"
 
-//
 // For the backend production host
 // export const HOST = "https://phc-prediction.herokuapp.com/"
 // export const HOST = "https://phc-demo-b3e9e6aa0c2b.herokuapp.com/"
