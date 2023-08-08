@@ -1,6 +1,6 @@
 // For the backend development host
 // export const HOST = "http://127.0.0.1:8000/"
-export const HOST = "http://192.168.11.7:8000/"
+export const HOST = "https://192.168.11.7:8000/"
 // For the backend production host
 // export const HOST = "https://phc-prediction.herokuapp.com/"
 // export const HOST = "https://phc-demo-b3e9e6aa0c2b.herokuapp.com/"
