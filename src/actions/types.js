@@ -1,7 +1,7 @@
 // For the backend development host
 // export const HOST = "http://127.0.0.1:8000/"
 // export const HOST = "https://192.168.11.7:8000/"
-export const HOST = "https://6e77-133-5-17-169.ngrok.io/"
+export const HOST = "https://6d19-133-5-17-169.ngrok.io/"
 
 //
 // For the backend production host
